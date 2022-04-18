@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: svc2
+
+server:
+  port: 8082
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: info
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+

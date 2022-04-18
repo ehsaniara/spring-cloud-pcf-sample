@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: svc1
+
+server:
+  port: 8081
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: info
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+

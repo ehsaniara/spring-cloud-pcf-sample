@@ -1,0 +1,11 @@
+---
+applications:
+  - name: svc2
+    buildpack: https://github.com/cloudfoundry/java-buildpack.git#v4.48.2
+    instances: 1
+    memory: 256M
+    env:
+      SPRING_PROFILES_ACTIVE: cloud
+      JAVA_OPTS: -Xms128m -Xmx128m -Xss32m
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+}}'
+      JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'

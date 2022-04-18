@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: gw
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: info
