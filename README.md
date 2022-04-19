@@ -1,5 +1,23 @@
-# Spring Cloud for Pivotal Cloud Foundry (PCF)
+# Spring Cloud for Tanzu Application Service (TAS)
 
+First we need to create `manifest.yml` for every project which go into TAS 
+
+For this example we are using [java-buildpack](https://github.com/cloudfoundry/java-buildpack). 
+```yaml
+---
+applications:
+  - name: gw 
+    buildpack: https://github.com/cloudfoundry/java-buildpack.git#v4.48.2
+    instances: 1
+    memory: 512M
+    env:
+      SPRING_PROFILES_ACTIVE: cloud
+      JAVA_OPTS: -Xms256m -Xmx256m -Xss64m
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+}}'
+      JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+```
+
+For More details, please visit [VMware Tanzu Application Service](https://docs.pivotal.io/application-service/).
 
 
 ### URL base routing
